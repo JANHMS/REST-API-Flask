@@ -10,6 +10,9 @@
 	    xmlHttp.open("GET", theUrl, true); // true for asynchronous
 	    xmlHttp.send(null);
 	}
+  httpGetAsync('http://127.0.0.1:7001/store', function(response){
+    alert(response)
+  })
 </script>
 </head>
 <body>

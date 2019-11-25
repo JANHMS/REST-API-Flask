@@ -1,13 +1,14 @@
-from flask import Flask
+from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager
-
+from marshmellow import ValidationError
 from db import db
 from ma import ma
 from blacklist import BLACKLIST
 from resources.user import UserRegister, UserLogin, User, TokenRefresh, UserLogout
 from resources.item import Item, ItemList
 from resources.store import Store, StoreList
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///data.db"
@@ -26,6 +27,9 @@ api = Api(app)
 def create_tables():
     db.create_all()
 
+@app.errorhandler(ValidationError)
+def handle_marshmallow_validation(err):
+    return jsonify(err.messages), 400
 
 jwt = JWTManager(app)
 

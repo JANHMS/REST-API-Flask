@@ -17,7 +17,7 @@ app.config["JWT_BLACKLIST_TOKEN_CHECKS"] = [
     "access",
     "refresh",
 ]  # allow blacklisting for access and refresh tokens
-app.secret_key = "jose"  # could do app.config['JWT_SECRET_KEY'] if we prefer
+app.secret_key = "Janne Heimes"
 api = Api(app)
 
 
@@ -48,4 +48,4 @@ api.add_resource(UserLogout, "/logout")
 
 if __name__ == "__main__":
     db.init_app(app)
-    app.run(port=5000, debug=True)
+    app.run(port=7002, debug=True)

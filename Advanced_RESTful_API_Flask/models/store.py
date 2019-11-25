@@ -1,4 +1,4 @@
-import typing from Dict, List, Union
+from typing import Dict, List, Union
 
 from db import db
 from models.item import ItemJSON

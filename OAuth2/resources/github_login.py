@@ -1,4 +1,4 @@
-from flask import request, g
+from flask import request, g, url_for
 from flask_restful import Resource
 from flask_jwt_extended import create_access_token, create_refresh_token
 from models.user import UserModel
@@ -11,17 +11,23 @@ user_schema = UserSchema()
 class GithubLogin(Resource):
     @classmethod
     def get(cls):
-        return github.authorize(callback="http://localhost:5000/login/github/authorized")
+        return github.authorize(url_for('github.authorize', _external=True))
 
 
+# Get authorization
+# Create user
+# Save github token to user
+# Create access token
+# Return JWT
+# Tokengetter will then use the current user to load token from database
 class GithubAuthorize(Resource):
     @classmethod
     def get(cls):
         resp = github.authorized_response()
-        if resp is None or res.get('access_token') is None:
-            error_response={
-                'error':request.args['error'],
-                'error_description': request.args['error_description']
+        if resp is None or resp.get('access_token') is None:
+            error_response = {
+                "error": request.args['error'],
+                "error_description": request.args['error_description']
             }
             return error_response
 

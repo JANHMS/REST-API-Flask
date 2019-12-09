@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 from db import db
 from ma import ma
 from resources.user import UserRegister, UserLogin, User
-
+from oa import oauth
 
 app = Flask(__name__)
 load_dotenv(".env")
@@ -34,4 +34,5 @@ api.add_resource(UserLogin, "/login")
 if __name__ == "__main__":
     db.init_app(app)
     ma.init_app(app)
+    oa.init_app(app)
     app.run(port=5000)

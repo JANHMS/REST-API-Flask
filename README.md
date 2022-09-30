@@ -1,7 +1,13 @@
 # REST-API-Flask
 
-This is a simple RESTAPI Application build with the lightweight framework flask. 
-Is is an application which follows the basics of CRUD. 
+This is a simple RESTful Application build with the lightweight framework flask. 
+In is an application basics of CRUD are implemented. 
+
+* Create
+* Read
+* Update
+* Delete 
+
 It was used to understand and learn RESTful Applications. 
 
-However this is replcaed by GQL designed Web Applications, which I later in another project also implmented with ruby on rails in the BE. 
+However this is more and more replcaed by GQL designed Web Applications, which I implmented later in another project with ruby on rails in the BE. 
